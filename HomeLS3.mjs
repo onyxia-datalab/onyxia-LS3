@@ -1,17 +1,17 @@
 
-/** @typedef {import("./Onyxia").Onyxia} Onyxia */
+/** @typedef {import("./types").OnyxiaCtx} OnyxiaCtx */
 
-/** @param {Onyxia} onyxia */
-export async function createHomeLS3(onyxia) {
+/** @param {OnyxiaCtx} ctx */
+export async function createHomeLS3(ctx) {
 
     const [
         React,
         { tss },
         { Text }
     ] = await Promise.all([
-        onyxia.import("react"),
-        onyxia.import("tss"),
-        onyxia.import("onyxia-ui/Text"),
+        ctx.import("react"),
+        ctx.import("tss"),
+        ctx.import("onyxia-ui/Text"),
     ]);
 
     function HomeLS3() {
