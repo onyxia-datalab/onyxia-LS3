@@ -1,5 +1,5 @@
 
-/** @typedef {import("./types").OnyxiaCtx} OnyxiaCtx */
+/** @typedef {import("../types").OnyxiaCtx} OnyxiaCtx */
 
 /** @param {OnyxiaCtx} ctx */
 export async function createHomeLS3(ctx) {
