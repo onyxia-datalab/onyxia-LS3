@@ -48,6 +48,8 @@ dev build.
 
 ```bash
 git clone https://github.com/InseeFrLab/onyxia
+# Checkout the version d'Onyxia you're building against.
+#git checkout v11.2.0
 cd onyxia/web
 yarn
 git clone https://github.com/garronej/onyxia-LS3
