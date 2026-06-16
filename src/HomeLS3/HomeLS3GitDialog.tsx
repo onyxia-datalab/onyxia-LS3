@@ -1,5 +1,5 @@
 import type { ComponentType, ReactNode } from "react";
-import type { OnyxiaCtx } from "../onyxia";
+import type { OnyxiaCtx } from "../OnyxiaCtx";
 
 export type GitDialogOpenEvent = {
     serviceName: string;

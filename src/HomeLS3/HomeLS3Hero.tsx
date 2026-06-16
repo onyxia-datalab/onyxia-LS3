@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { OnyxiaCtx } from "../onyxia";
+import type { OnyxiaCtx } from "../OnyxiaCtx";
 
 export type Props = {
     className?: string;
@@ -15,6 +15,8 @@ export async function createHomeLS3Hero(
         ctx.import("onyxia-ui/Text"),
         ctx.import("env")
     ]);
+
+    void React;
 
     function HomeLS3Hero(props: Props) {
         const { className, userDisplayName } = props;

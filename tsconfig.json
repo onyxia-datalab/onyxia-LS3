@@ -1,23 +1,7 @@
 {
+    "extends": "../tsconfig.json",
     "compilerOptions": {
-        "target": "ES2020",
-        "useDefineForClassFields": true,
-        "lib": ["ES2020", "DOM", "DOM.Iterable", "ES2022.Error"],
-        "module": "ESNext",
-        "skipLibCheck": true,
-        "baseUrl": ".",
-        "moduleResolution": "bundler",
-        "allowImportingTsExtensions": true,
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "noEmit": true,
-        "jsx": "react",
-        "strict": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true,
-        "verbatimModuleSyntax": true,
-        "types": ["node", "react"]
+        "noEmit": true
     },
-    "include": ["src", "scripts"]
+    "include": ["src", "scripts", "../src/vite-env.d.ts"]
 }

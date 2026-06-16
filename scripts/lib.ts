@@ -42,7 +42,13 @@ export function getEsbuildOptions(params: {
         jsx: "transform",
         jsxFactory: "React.createElement",
         jsxFragment: "React.Fragment",
-        tsconfig: path.join(projectRoot, "tsconfig.json"),
+        tsconfigRaw: {
+            compilerOptions: {
+                jsx: "react",
+                jsxFactory: "React.createElement",
+                jsxFragmentFactory: "React.Fragment"
+            }
+        },
         logLevel: "info"
     };
 }

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { OnyxiaCtx } from "../onyxia";
+import type { OnyxiaCtx } from "../OnyxiaCtx";
 import type { GitDialogOpenEvent } from "./HomeLS3GitDialog";
 import { createHomeLS3GitDialog } from "./HomeLS3GitDialog";
 import { createHomeLS3Hero } from "./HomeLS3Hero";
@@ -44,6 +44,8 @@ export async function createHomeLS3(
         createHomeLS3InfoCard(ctx),
         createHomeLS3GitDialog(ctx)
     ]);
+
+    void React;
 
     function HomeLS3() {
         const { classes, css, theme } = useStyles();

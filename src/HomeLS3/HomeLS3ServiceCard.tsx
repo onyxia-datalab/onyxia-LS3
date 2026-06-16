@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { OnyxiaCtx } from "../onyxia";
+import type { OnyxiaCtx } from "../OnyxiaCtx";
 
 export type Props = {
     className?: string;
@@ -18,6 +18,8 @@ export async function createHomeLS3ServiceCard(
         ctx.import("onyxia-ui/Button"),
         ctx.import("onyxia-ui/Text")
     ]);
+
+    void React;
 
     function HomeLS3ServiceCard(props: Props) {
         const { className, serviceName, title, coverImageUrl, onClick } = props;
