@@ -1,0 +1,67 @@
+name: Build artifact
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      onyxia_ref:
+        description: Onyxia git ref to build against
+        required: true
+        default: v11.2.0
+
+env:
+  ONYXIA_REF: v11.2.0
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build onyxia-LS3.zip
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Onyxia
+        uses: actions/checkout@v4
+        with:
+          repository: InseeFrLab/onyxia
+          ref: ${{ inputs.onyxia_ref || env.ONYXIA_REF }}
+          path: onyxia
+          fetch-depth: 1
+
+      - name: Checkout onyxia-LS3
+        uses: actions/checkout@v4
+        with:
+          path: onyxia/web/onyxia-LS3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Yarn
+        run: npm install --global yarn@1.22.22
+
+      - name: Install Onyxia dependencies
+        run: yarn install --frozen-lockfile
+        working-directory: onyxia/web
+
+      - name: Install onyxia-LS3 dependencies
+        run: npm ci
+        working-directory: onyxia/web/onyxia-LS3
+
+      - name: Typecheck
+        run: npm run typecheck
+        working-directory: onyxia/web/onyxia-LS3
+
+      - name: Build zip
+        run: npm run build
+        working-directory: onyxia/web/onyxia-LS3
+
+      - name: Upload zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: onyxia-LS3-${{ github.sha }}
+          path: onyxia/web/onyxia-LS3/onyxia-LS3.zip
+          if-no-files-found: error
+          retention-days: 30

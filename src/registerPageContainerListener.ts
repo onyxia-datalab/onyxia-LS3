@@ -1,20 +1,21 @@
-/**
- * @param {string} routeName
- * @param {(element: HTMLElement) => void} listener
- */
-export function registerPageContainerListener(routeName, listener) {
-    /** @type {HTMLElement | undefined} */
-    let element_cache = undefined;
+export function registerPageContainerListener(
+    routeName: string,
+    listener: (element: HTMLElement) => void
+) {
+    let element_cache: HTMLElement | undefined = undefined;
 
     const update = () => {
         const element = document.getElementById(`page-container-${routeName}`);
+
         if (element === null) {
             element_cache = undefined;
             return;
         }
+
         if (element === element_cache) {
             return;
         }
+
         element_cache = element;
         listener(element);
     };

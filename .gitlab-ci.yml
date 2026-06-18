@@ -1,0 +1,28 @@
+stages:
+  - build
+
+variables:
+  ONYXIA_REF: "v11.2.0"
+
+build_artifact:
+  stage: build
+  image: node:22
+  script:
+    - apt-get update && apt-get install -y --no-install-recommends git
+    - npm install --global yarn@1.22.22
+    - git clone --depth 1 --branch "$ONYXIA_REF" https://github.com/InseeFrLab/onyxia.git ../onyxia
+    - mkdir -p ../onyxia/web/onyxia-LS3
+    - cp -R "$CI_PROJECT_DIR"/. ../onyxia/web/onyxia-LS3/
+    - cd ../onyxia/web
+    - yarn install --frozen-lockfile
+    - cd onyxia-LS3
+    - npm ci
+    - npm run typecheck
+    - npm run build
+    - cp onyxia-LS3.zip "$CI_PROJECT_DIR/onyxia-LS3.zip"
+  artifacts:
+    name: "onyxia-LS3-$CI_COMMIT_SHORT_SHA"
+    paths:
+      - onyxia-LS3.zip
+    when: on_success
+    expire_in: 30 days
