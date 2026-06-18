@@ -30,10 +30,10 @@ export async function createHomeLS3Hero(
                 />
                 <div className={classes.textWrap}>
                     <div>
-                        <Text typo="page heading">Bienvenu {userDisplayName}</Text>
+                        <Text typo="page heading">Bienvenue, {userDisplayName}</Text>
                         <Text className={classes.subtitle} typo="navigation label">
-                            Demare ton service en quelque clicks et profite de la puissance de
-                            calcule de nos serveurs.
+                            Démarre ton service en quelques clics et profite de la puissance
+                            de calcul de nos serveurs.
                         </Text>
                     </div>
                 </div>

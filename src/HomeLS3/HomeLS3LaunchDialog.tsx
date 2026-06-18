@@ -558,7 +558,7 @@ export async function createHomeLS3LaunchDialog(
                     <Text typo="object heading">Première connexion avec GitLab</Text>
                     <Text className={classes.description} typo="body 1">
                         Pour récupérer automatiquement vos projets GitLab dans RStudio,
-                        renseigne ton jeton d’accès personnel GitLab. Cette opération
+                        renseignez votre jeton d’accès personnel GitLab. Cette opération
                         n’est nécessaire qu’une seule fois.
                     </Text>
                 </div>
@@ -588,7 +588,7 @@ export async function createHomeLS3LaunchDialog(
                         }).link}
                         target="_blank"
                     >
-                        Comment trouver son Jeton d’accès personnel ?
+                        Comment trouver votre jeton d’accès personnel ?
                     </Link>
                 </Text>
                 <Alert
@@ -598,7 +598,7 @@ export async function createHomeLS3LaunchDialog(
                         icon: classes.infoAlert_icon
                     }}
                 >
-                    Le jeton sera enregistré dans votre profil pour tes prochaines
+                    Le jeton sera enregistré dans votre profil pour vos prochaines
                     connexions.
                 </Alert>
                 <Button
@@ -795,7 +795,7 @@ export async function createHomeLS3LaunchDialog(
         return (
             <div className={cx(classes.root, className)}>
                 <Text className={classes.title} typo="object heading">
-                    Renseigne ton répertoire GitLab
+                    Renseignez votre répertoire GitLab
                 </Text>
                 <Text className={classes.description} typo="body 1">
                     Indique l’URL du projet GitLab à initialiser automatiquement dans{" "}
