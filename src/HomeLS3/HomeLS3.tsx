@@ -8,7 +8,7 @@ import { createHomeLS3ServiceCard } from "./HomeLS3ServiceCard";
 
 type ServiceName = "RStudio" | "VSCode";
 
-const serviceNames: ServiceName[] = ["RStudio"] as const;
+const serviceNames: ServiceName[] = ["RStudio", "VSCode"] as const;
 
 export async function createHomeLS3(
     ctx: OnyxiaCtx
@@ -97,9 +97,9 @@ export async function createHomeLS3(
                     chartName: (() => {
                         switch (serviceName) {
                             case "RStudio":
-                                return "rstudio-r-python-julia";
+                                return "rstudio";
                             case "VSCode":
-                                return "vscode-r-python-julia";
+                                return "vscode-python";
                         }
                     })(),
                     helmValuesPatch:
