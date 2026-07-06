@@ -1,6 +1,6 @@
 # onyxia-LS3
 
-Onyxia customization source for the internal deployment of Onyxia: SL³.
+Onyxia customization source for the internal deployment of Onyxia: LS³.
 
 What this does: 
 - Customize theme and branding as documented [here](https://docs.onyxia.sh/admin-doc/theme).  
